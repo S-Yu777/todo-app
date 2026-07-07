@@ -7,42 +7,45 @@
 
 <body class="bg-light">
 
-<div class="container mt-5">
+<div class="container mt-5" style="max-width: 600px;">
 
-  <h1 class="mb-4">Todo App</h1>
+  <div class="card shadow p-4">
 
-  <!-- 追加フォーム -->
-  <form method="POST" class="d-flex mb-3">
-    {% csrf_token %}
-    <input type="text" name="title" class="form-control me-2" placeholder="タスクを入力">
-    <button class="btn btn-primary">追加</button>
-  </form>
+    <h2 class="text-center mb-4">📝 Todo App</h2>
 
-  <!-- タスクリスト -->
-  <ul class="list-group">
+    <form method="POST" class="d-flex mb-3">
+      {% csrf_token %}
+      <input type="text" name="title" class="form-control me-2" placeholder="タスクを入力">
+      <button class="btn btn-primary">追加</button>
+    </form>
 
-    {% for task in tasks %}
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+    <ul class="list-group">
 
-        <span>
-          {% if task.done %}
-            <del>{{ task.title }}</del>
-          {% else %}
-            {{ task.title }}
-          {% endif %}
-        </span>
+      {% for task in tasks %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
 
-        <div>
-          <a href="{% url 'toggle_task' task.id %}" class="btn btn-success btn-sm">完了</a>
-          <a href="{% url 'delete_task' task.id %}" class="btn btn-danger btn-sm">削除</a>
-        </div>
+          <span>
+            {% if task.done %}
+              <del class="text-muted">{{ task.title }}</del>
+            {% else %}
+              {{ task.title }}
+            {% endif %}
+          </span>
 
-      </li>
-    {% endfor %}
+          <div>
+            <a href="{% url 'toggle_task' task.id %}" class="btn btn-success btn-sm">完了</a>
+            <a href="{% url 'delete_task' task.id %}" class="btn btn-danger btn-sm">削除</a>
+          </div>
 
-  </ul>
+        </li>
+      {% endfor %}
+
+    </ul>
+
+  </div>
 
 </div>
 
 </body>
 </html>
+
