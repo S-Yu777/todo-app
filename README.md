@@ -79,10 +79,12 @@ Todoの登録・一覧表示・完了状態変更・削除など、基本的なC
 ## 📷 画面イメージ
 
 ### ログイン画面
+
 ![ログイン画面](images/login.png)
 
 ### Todo一覧画面
-![Todo一覧](images/todo_list.png)## 📷 画面イメージ
+
+![Todo一覧](images/todo_list.png)
 
 ---
 
